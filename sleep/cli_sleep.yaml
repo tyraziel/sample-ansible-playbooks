@@ -12,5 +12,8 @@
 
     - name: Outout after sleep
       ansible.builtin.debug:
-        msg: |
-          Sleep {{ sleep_time }} completed.
+        msg: "Sleep {{ sleep_time }} completed."
+
+    - name: Output facts
+      ansible.builtin.debug:
+        var: ansible_facts
