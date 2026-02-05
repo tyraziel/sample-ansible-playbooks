@@ -1,0 +1,16 @@
+---
+- name: Gather Facts then Sleep via CLI
+  hosts: all
+  gather_facts: true
+  
+  vars:
+    sleep_time: 120
+   
+  tasks:
+    - name: "Sleep {{ sleep_time }}"
+      ansible.builtin.command: sleep "{{ sleep_time }}"
+
+    - name: Outout after sleep
+      ansible.builtin.debug:
+        msg: |
+          Sleep {{ sleep_time }} completed.
