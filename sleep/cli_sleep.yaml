@@ -21,3 +21,4 @@
     - name: Set Facts
       ansible.builtin.set_fact:
         more_data: "{{ ansible_facts }}"
+        delegate_facts: true
