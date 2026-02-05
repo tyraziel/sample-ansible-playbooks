@@ -1,0 +1,17 @@
+---
+- name: Gather Facts then Sleep Playbook
+  hosts: all
+  gather_facts: true
+  
+  vars:
+    sleep_time: 120
+   
+  tasks:
+    - name: "Sleep {{ sleep_time }}"
+      ansible.builtin.pause:
+        seconds: {{ sleep_time }}
+
+    - name: Outout after sleep
+      ansible.builtin.debug:
+        msg: |
+          Sleep {{ sleep_time }} completed.
