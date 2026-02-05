@@ -9,7 +9,7 @@
   tasks:
     - name: "Sleep {{ sleep_time }}"
       ansible.builtin.pause:
-        seconds: sleep_time
+        seconds: "{{ sleep_time }} | int"
 
     - name: Outout after sleep
       ansible.builtin.debug:
