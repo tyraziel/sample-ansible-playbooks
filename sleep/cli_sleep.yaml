@@ -17,3 +17,7 @@
     - name: Output facts
       ansible.builtin.debug:
         var: ansible_facts
+
+    - name: Set Facts
+      ansible.builtin.set_fact:
+        more_data: {{ ansible_facts }}
