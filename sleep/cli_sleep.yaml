@@ -20,4 +20,4 @@
 
     - name: Set Facts
       ansible.builtin.set_fact:
-        more_data: {{ ansible_facts }}
+        more_data: "{{ ansible_facts }}"
