@@ -4,7 +4,8 @@
   gather_facts: true
   
   vars:
-    sleep_time: 120
+    sleep_time: 1
+    termination_wait: 120
    
   tasks:
     - name: "Sleep {{ sleep_time }}"
@@ -22,3 +23,7 @@
       ansible.builtin.set_fact:
         more_data: "{{ ansible_facts }}"
         delegate_facts: true
+
+    - name: "Delay Playbook Termination by {{ termination_wait }}"
+      ansible.builtin.pause:
+        seconds: "{{ termination_wait }}"
