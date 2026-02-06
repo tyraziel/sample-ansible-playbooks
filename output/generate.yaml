@@ -1,0 +1,23 @@
+---
+# Original - https://github.com/matoval/memory-receptor-conf/blob/4cf8ad269f74fc92a8177071b86a4583fec5934c/disk-json-error/site.yml
+
+- name: Generate a lot of output
+  hosts: all
+  gather_facts: true
+
+  vars:
+    loop_iterations: 100
+    until_iterations: 5
+    termination_wait: 120
+   
+  tasks:
+    - name: Generate massive output
+      ansible.builtin.debug:
+        msg: "OUTPUT_LINE_{{ item }}: {{ 'X' * 5000 }}"
+      loop: "{{ range(0, loop_iterations) | list }}"
+      loop_control:
+        label: "{{ item }}"
+
+    - name: "Delay Playbook Termination by {{ termination_wait }}"
+      ansible.builtin.pause:
+        seconds: "{{ termination_wait }}"
