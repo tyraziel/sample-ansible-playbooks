@@ -7,13 +7,13 @@
 
   vars:
     loop_iterations: 100
-    until_iterations: 5
+    output_size: 5000
     termination_wait: 120
    
   tasks:
     - name: Generate massive output
       ansible.builtin.debug:
-        msg: "OUTPUT_LINE_{{ item }}: {{ 'X' * 5000 }}"
+        msg: "OUTPUT_LINE_{{ item }}: {{ 'X' * output_size }}"
       loop: "{{ range(0, loop_iterations) | list }}"
       loop_control:
         label: "{{ item }}"
